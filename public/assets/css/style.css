@@ -1,0 +1,95 @@
+body {
+  background-image: url(../images/white-waves.png);
+  background-repeat: repeat;
+  font-family: 'Muli', sans-serif;
+}
+
+.background-image {
+  height: 350px;
+  background-image: url(../images/peter-lawrence-unsplash.jpg);
+  background-size: cover;
+  /* Photo by rawpixel.com on Unsplash */
+}
+
+a {
+  color: inherit;
+  text-decoration:none;
+}
+
+.title {
+  padding-top: 100px !important;
+  color: whitesmoke;
+}
+
+h1, h3 {
+  text-shadow: 2px 2px 4px rgb(44, 44, 44) !important;
+}
+
+h1 {
+  font-size: 80px !important;
+}
+
+#savedTitle{
+  color: #767676;
+}
+
+img{
+  width:285px;
+  height:159px;
+}
+
+h3 {
+  font-size: 35px !important;
+}
+
+#slug{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+/* #wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5%;
+}
+
+#headlines {
+  display: inline-block;
+  overflow: auto;
+  width: 60%;
+  height: 700px;
+  padding-top: 5%;
+} */
+
+#notes {
+  float: right;
+  width: 30%;
+}
+
+textarea,
+input {
+  display: block;
+  width: 100%;
+  background-color: #FCF5C7;
+}
+
+p{
+  color:#767676; 
+  font-size:17.5px;
+}
+
+input {
+  height: 36px;
+  font-size: 24px;
+}
+
+textarea {
+  height: 200px;
+  font-size: 18px;
+}
+
+.footer {
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 16px;
+}
