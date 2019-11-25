@@ -16,21 +16,38 @@ a {
   text-decoration:none;
 }
 
+.navbar-brand{
+  margin-right:2rem;
+}
+
 .title {
   padding-top: 100px !important;
   color: whitesmoke;
 }
 
-h1, h3 {
+h1 {
+  font-size: 80px !important;
   text-shadow: 2px 2px 4px rgb(44, 44, 44) !important;
 }
 
-h1 {
-  font-size: 80px !important;
+h3 {
+  font-size: 35px !important;
+  text-shadow: 2px 2px 4px rgb(44, 44, 44) !important;
+}
+
+h4{
+  margin-bottom:0;
+  margin-left:-2.5rem;
+}
+
+h5{
+  margin-bottom:0;
 }
 
 #savedTitle{
   color: #767676;
+  text-align: center;
+  margin-top:-2.25rem;
 }
 
 img{
@@ -38,28 +55,15 @@ img{
   height:159px;
 }
 
-h3 {
-  font-size: 35px !important;
+
+#unsave-article{
+  text-align: right;
 }
 
 #slug{
   font-weight: bold;
   margin-bottom: 5px;
 }
-/* #wrapper {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 5%;
-}
-
-#headlines {
-  display: inline-block;
-  overflow: auto;
-  width: 60%;
-  height: 700px;
-  padding-top: 5%;
-} */
 
 #notes {
   float: right;

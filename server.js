@@ -21,8 +21,6 @@ mongoose.connect(MONGODB_URI,
     useCreateIndex: true
   });
 
-//mongolab-spherical-02459 as MONGOLAB_MAUVE_URI
-
 // Initialize Express
 let app = express();
 

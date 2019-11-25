@@ -1,85 +1,98 @@
-<div>
-    <h4 id="savedTitle">Saved Articles</h4>
-    {{#if articles}}
-    {{#each articles}}
-    <div class="card mb-3">
-        <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
-            <div class="card-header text-left text-white bg-secondary">
-                <h5>{{this.title}}</h5>
-            </div>
-        </a>
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    <a href="{{this.slugLink}}" style="text-decoration:none;" target="_blank">
-                        <p id="slug">{{this.slug}}</p>
-                    </a>
-                    <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
-                        <p>{{this.summary}}</p>
-                    </a>
-                </div>
-                <div class="col-3 card-img mt-1" alt="Card image">
-                    <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
-                        <img src="{{this.image}}" class="float-right img-fluid"
-                            onerror=" this.parentElement.innerHTML='';">
-                    </a>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <h4 id="savedTitle">Saved</h4>
+    </div>
+    </row>
+    <row>
+        {{#if articles}}
+        {{#each articles}}
+        <div class="card mb-3">
+            <div class="card-header container-fluid bg-secondary">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
+                            <h5 class="text-left text-white">{{this.title}}</h5>
+                        </a>
+                    </div>
+                    <div class="col-sm-2 float-right">
+                        <button type="button" class="btn btn-secondary mr-2" id="unsave-article"
+                            data-id="{{this._id}}">Remove
+                            Article</button>
+                    </div>
                 </div>
             </div>
-            </a>
-            <div class="row mt-1">
-                <div class="col-sm-3">
-                    <h6 class="pt-3 pl-2">Current Comments:</h6>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <a href="{{this.slugLink}}" style="text-decoration:none;" target="_blank">
+                            <p id="slug">{{this.slug}}</p>
+                        </a>
+                        <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
+                            <p>{{this.summary}}</p>
+                        </a>
+                    </div>
+                    <div class="col-3 card-img mt-1" alt="Card image">
+                        <a href="{{this.link}}" style="text-decoration:none;" target="_blank">
+                            <img src="{{this.image}}" class="float-right img-fluid"
+                                onerror=" this.parentElement.innerHTML='';">
+                        </a>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    {{#if this.notes}}
-                    <ul>
+                </a>
+                <div class="row mt-1">
+                    <div class="col-sm-3">
+                        <h6 class="pt-3 pl-2">Current Comments:</h6>
+                    </div>
+                    <div class="col-sm-9">
+                        {{#if this.notes}}
                         {{#each this.notes}}
-                        <li>{{body}}</li>
+                        <p class="mt-3">{{body}}
+                            <button type="button" class="btn btn-secondary btn-sm mr-2 float-right" id="delete-note"
+                                data-id="{{this._id}}">Delete</button>
+                        </p>
                         {{/each}}
-                    </ul>
-                    {{else}}
-                    <p class="mt-3">No comments yet. Feel free to leave one.</p>
-                    {{/if}}
+                        {{else}}
+                        <p class="mt-3">No comments yet. Feel free to leave
+                            one.</p>
+                        {{/if}}
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <button type="button" class="btn btn-secondary mr-2 ml-4" id="make-comment" data-id="{{this._id}}">Make
-                    Comment</button>
-                <button type="button" class="btn btn-dark mr-2" id="unsave-article" data-id="{{this._id}}">Remove from
-                    Saved Articles</button>
+                <br>
+                <div class="row">
+                    <button type="button" class="btn btn-secondary mr-2 ml-4" id="make-comment"
+                        data-id="{{this._id}}">Comment</button>
+                </div>
             </div>
         </div>
-    </div>
-    {{else}}
-    <p>No articles have been saved.</p>
-    {{/each}}
-    {{/if}}
-    <div class="modal" id="comment-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Make a Comment</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <form>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="comment-input">Type your Comment Here</label>
-                                <textarea class="form-control" id="comment-input" rows="2"></textarea>
+        {{else}}
+        <p>No articles have been saved.</p>
+        {{/each}}
+        {{/if}}
+        <div class="modal" id="comment-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Make a Comment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="comment-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <form>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="comment-input">Type your Comment Here</label>
+                                    <textarea class="form-control" id="comment-input" rows="2"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" id="save-comment">Save Comment</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" id="save-comment">Save Comment</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
