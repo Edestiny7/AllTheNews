@@ -2,6 +2,7 @@ body {
   background-image: url(../images/white-waves.png);
   background-repeat: repeat;
   font-family: 'Muli', sans-serif;
+  height:100vh;
 }
 
 .background-image {
